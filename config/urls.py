@@ -17,7 +17,11 @@ urlpatterns = [
     # User management
     path(
         "users/",
-        include("pandogram.users.urls", namespace="users"),
+        include("pandogram.users.urls"),
+    ),
+    path(
+        "images/",
+        include("pandogram.images.urls"),
     ),
     path("accounts/", include("allauth.urls")),
     # Your stuff: custom urls includes go here
