@@ -3,6 +3,17 @@ from . import models
 from pandogram.users import models as user_models
 
 
+class UserProfileImagesSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = models.Image
+        fields = (
+            'file',
+            'comment_count',
+            'like_count'
+        )
+
+
 class FeedUserSerializer(serializers.ModelSerializer):
 
     class Meta:
