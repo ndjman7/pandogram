@@ -3,7 +3,7 @@ from . import models
 from pandogram.users import models as user_models
 
 
-class UserProfileImagesSerializer(serializers.ModelSerializer):
+class CountImageSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = models.Image

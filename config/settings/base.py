@@ -68,6 +68,7 @@ THIRD_PARTY_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'rest_framework',
+    'taggit',  # Tags for the photo
 ]
 LOCAL_APPS = [
     'pandogram.users.apps.UsersAppConfig',
@@ -250,3 +251,4 @@ SOCIALACCOUNT_ADAPTER = 'pandogram.users.adapters.SocialAccountAdapter'
 
 # Your stuff...
 # ------------------------------------------------------------------------------
+TAGGIT_CASE_INSENSITIVE = True
