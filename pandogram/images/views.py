@@ -202,3 +202,26 @@ class ImageDetail(APIView):
         serializer = serializers.ImageSerializer(image)
 
         return Response(data=serializer.data, status=status.HTTP_200_OK)
+
+    def put(self, request, image_id, format=None):
+
+        user = request.user
+
+        try:
+            image = models.Image.objects.get(id=image_id, creator=user)
+        except models.Image.DoesNotExist:
+            return Response(status=status.HTTP_401_UNAUTHORIZED)
+
+        # partial은 serializer에서 모든 필드를 수정하지 않고 몇개의 필드만 수정가능하도록 함
+        serializer = serializers.InputImageSerializer(
+            image, data=request.data, partial=True)
+
+        if serializer.is_valid():
+
+            serializer.save(creator=user)
+
+            return Response(data=serializer.data, status=status.HTTP_204_NO_CONTENT)
+
+        else:
+
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
