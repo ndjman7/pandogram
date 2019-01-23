@@ -69,6 +69,7 @@ THIRD_PARTY_APPS = [
     'allauth.socialaccount',
     'rest_framework',
     'taggit',  # Tags for the photo
+    'taggit_serializer',  # Tag serializer
 ]
 LOCAL_APPS = [
     'pandogram.users.apps.UsersAppConfig',
