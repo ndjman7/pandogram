@@ -23,6 +23,10 @@ urlpatterns = [
         "images/",
         include("pandogram.images.urls"),
     ),
+    path(
+        "notifications/",
+        include("pandogram.notifications.urls"),
+    ),
     path("accounts/", include("allauth.urls")),
     # Your stuff: custom urls includes go here
 ] + static(
